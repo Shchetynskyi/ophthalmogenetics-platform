@@ -334,6 +334,20 @@ function App() {
             генетичними захворюваннями сітківки.
           </p>
 
+          <div className="mt-6 grid gap-3 md:grid-cols-4">
+            {[
+              ['Статус справи', 'Активна'],
+              ['Очікує лікаря', '3 події'],
+              ['Відповіді клінік', '1 отримана'],
+              ['Задачі родини', '2 відкриті'],
+            ].map(([label, value]) => (
+              <div key={label} className="rounded-2xl bg-slate-50 p-4">
+                <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{label}</p>
+                <p className="mt-2 text-lg font-bold">{value}</p>
+              </div>
+            ))}
+          </div>
+
           <div className="mt-8">
             <PageContent page={activePage} />
           </div>
