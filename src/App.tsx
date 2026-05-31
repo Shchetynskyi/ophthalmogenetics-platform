@@ -41,10 +41,7 @@ function FamilyDashboard() {
       <section className="rounded-2xl border border-blue-200 bg-blue-50 p-4 md:p-6">
         <p className="text-sm font-semibold text-blue-700">Супровід справи</p>
         <h2 className="mt-2 text-3xl font-bold">Марія К.</h2>
-        <p className="mt-2 text-sm text-slate-700">
-          Пігментний ретиніт • ген USH2A
-        </p>
-
+        <p className="mt-2 text-sm text-slate-700">Пігментний ретиніт • ген USH2A</p>
         <div className="mt-4 rounded-xl bg-amber-100 px-4 py-3 text-sm font-semibold text-amber-900">
           🟡 Справа на розгляді лікаря
         </div>
@@ -52,13 +49,37 @@ function FamilyDashboard() {
 
       <section className="rounded-2xl border border-slate-200 p-4 md:p-5">
         <p className="text-sm font-semibold text-blue-700">Що відбувається зараз</p>
-        <p className="mt-3 text-lg font-bold">
-          🧬 Лікар аналізує генетичний висновок
-        </p>
+        <p className="mt-3 text-lg font-bold">🧬 Лікар аналізує генетичний висновок</p>
         <p className="mt-2 text-sm text-slate-600">
           Висновок USH2A вже додано до справи. Лікар перевіряє, як він повʼязаний
           із симптомами, обстеженнями та можливими подальшими діями.
         </p>
+      </section>
+
+      <section className="rounded-2xl border border-amber-300 bg-amber-50 p-4 md:p-5">
+        <p className="text-sm font-semibold text-amber-800">Потрібна дія родини</p>
+        <h3 className="mt-2 text-lg font-bold">Потрібно виконати 2 дії</h3>
+        <ul className="mt-3 space-y-2 text-sm text-slate-700">
+          <li>• Завантажити попереднє ОКТ для порівняння динаміки</li>
+          <li>• Підтвердити згоду на звернення до закордонної клініки</li>
+        </ul>
+      </section>
+
+      <section className="rounded-2xl border border-slate-200 p-4 md:p-5">
+        <p className="text-sm font-semibold text-blue-700">Остання активність команди</p>
+        <div className="mt-4 space-y-3">
+          {[
+            ['01.06 14:20', '👨‍⚕️ Лікар відкрив генетичний висновок'],
+            ['01.06 14:55', '🧬 Розпочато аналіз USH2A'],
+            ['01.06 15:10', '🔎 Перевірено нові дослідження'],
+            ['01.06 16:00', '📝 Підготовлено чернетку висновку'],
+          ].map(([time, title]) => (
+            <div key={title} className="flex gap-3 rounded-xl bg-slate-50 p-3">
+              <div className="w-20 shrink-0 text-xs font-bold text-slate-500">{time}</div>
+              <p className="text-sm font-semibold text-slate-900">{title}</p>
+            </div>
+          ))}
+        </div>
       </section>
 
       <section className="rounded-2xl border border-green-200 bg-green-50 p-4 md:p-5">
@@ -107,14 +128,6 @@ function FamilyDashboard() {
             </div>
           ))}
         </div>
-      </section>
-
-      <section className="rounded-2xl border border-amber-200 bg-amber-50 p-4 md:p-5">
-        <p className="text-sm font-semibold text-amber-800">Потрібно від родини</p>
-        <ul className="mt-3 space-y-2 text-sm text-slate-700">
-          <li>• Завантажити попереднє ОКТ для порівняння динаміки</li>
-          <li>• Підтвердити згоду на звернення до закордонної клініки</li>
-        </ul>
       </section>
     </div>
   )
