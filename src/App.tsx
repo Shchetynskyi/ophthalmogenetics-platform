@@ -36,55 +36,84 @@ function StatusBadge({ children }: { children: string }) {
 }
 
 function FamilyDashboard() {
-  const steps = [
-    ['1', 'Документ отримано', 'Родина або клініка додала файл'],
-    ['2', 'Виявлено системою', 'Подія потрапила у справу пацієнта'],
-    ['3', 'Оцінка лікаря', 'Лікар додає медичний висновок'],
-    ['4', 'Видимо родини', 'Родина бачить пояснення та наступні дії'],
+  const news = [
+    'Отримано генетичний висновок USH2A',
+    'Отримано відповідь клініки Institut de la Vision',
+    'Знайдено нове клінічне дослідження',
+  ]
+
+  const counters = [
+    ['Очікує лікаря', '3', 'відкриті оцінки'],
+    ['Задачі родини', '2', 'потрібна дія'],
+    ['Клініки', '1/3', 'відповідь отримано'],
+    ['Дослідження', '3', 'нові сигнали'],
   ]
 
   return (
-    <div className="space-y-6">
-      <div className="grid gap-4 md:grid-cols-3">
-        <div className="rounded-xl border border-slate-200 p-4 md:rounded-2xl md:p-5">
-          <p className="text-sm text-slate-500">Пацієнт</p>
-          <h2 className="mt-2 text-xl font-semibold">Марія К.</h2>
-          <p className="mt-2 text-sm text-slate-600">
-            Справа активна. Основний діагноз: пігментний ретиніт.
-          </p>
-        </div>
-
-        <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 md:rounded-2xl md:p-5">
-          <p className="text-sm text-amber-700">Поточна подія</p>
-          <h2 className="mt-2 text-xl font-semibold">Очікує оцінки лікаря</h2>
-          <p className="mt-2 text-sm text-slate-600">
-            Додано генетичний висновок. Родина бачить, що документ ще не оцінений.
-          </p>
-        </div>
-
-        <div className="rounded-xl border border-slate-200 p-4 md:rounded-2xl md:p-5">
-          <p className="text-sm text-slate-500">Наступна дія</p>
-          <h2 className="mt-2 text-xl font-semibold">Висновок спеціаліста</h2>
-          <p className="mt-2 text-sm text-slate-600">
-            Після оцінки лікаря висновок стане видимим у кабінеті родини.
-          </p>
+    <div className="space-y-5">
+      <div className="rounded-2xl border border-blue-200 bg-blue-50 p-4 md:p-6">
+        <p className="text-sm font-semibold text-blue-700">Панель справи пацієнта</p>
+        <div className="mt-3 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <h2 className="text-2xl font-bold md:text-3xl">Марія К.</h2>
+            <p className="mt-2 text-sm text-slate-700">
+              Пігментний ретиніт • ген USH2A • мутація c.2299delG
+            </p>
+          </div>
+          <div className="rounded-xl bg-amber-100 px-4 py-3 text-sm font-semibold text-amber-900">
+            Очікує оцінки лікаря
+          </div>
         </div>
       </div>
 
-      <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 md:rounded-3xl md:p-6">
-        <p className="text-sm font-semibold text-blue-700">Інфографіка супроводу</p>
-        <h2 className="mt-2 text-xl font-bold md:text-2xl">Як рухається справа пацієнта</h2>
+      <div className="grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-3">
+        {counters.map(([label, value, hint]) => (
+          <div key={label} className="rounded-xl border border-slate-200 bg-white p-4">
+            <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{label}</p>
+            <p className="mt-2 text-2xl font-bold text-slate-900">{value}</p>
+            <p className="mt-1 text-xs text-slate-500">{hint}</p>
+          </div>
+        ))}
+      </div>
 
-        <div className="mt-4 grid gap-3 md:mt-6 md:grid-cols-4 md:gap-4">
-          {steps.map(([number, title, description]) => (
-            <div key={title} className="rounded-xl bg-white p-4 shadow-sm md:rounded-2xl md:p-5">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">
-                {number}
+      <div className="grid gap-4 lg:grid-cols-[1fr_360px]">
+        <section className="rounded-2xl border border-slate-200 p-4 md:p-5">
+          <p className="text-sm font-semibold text-blue-700">Що нового</p>
+          <div className="mt-4 space-y-3">
+            {news.map((item) => (
+              <div key={item} className="rounded-xl bg-slate-50 p-3 text-sm text-slate-700">
+                {item}
               </div>
-              <p className="mt-4 font-semibold">{title}</p>
-              <p className="mt-2 text-sm text-slate-600">{description}</p>
-            </div>
-          ))}
+            ))}
+          </div>
+        </section>
+
+        <section className="rounded-2xl border border-amber-200 bg-amber-50 p-4 md:p-5">
+          <p className="text-sm font-semibold text-amber-800">Наступний крок</p>
+          <h3 className="mt-2 text-lg font-bold">Оцінити генетичний висновок</h3>
+          <p className="mt-2 text-sm text-slate-700">
+            Лікар має додати короткий висновок. Після цього він стане видимим для родини.
+          </p>
+        </section>
+      </div>
+
+      <div className="grid gap-4 md:grid-cols-3">
+        <div className="rounded-2xl border border-slate-200 p-4 md:p-5">
+          <p className="text-sm font-semibold text-slate-500">Документи</p>
+          <p className="mt-2 text-lg font-bold">4 файли у справі</p>
+          <p className="mt-1 text-sm text-slate-600">1 документ очікує оцінки лікаря</p>
+        </div>
+
+        <div className="rounded-2xl border border-slate-200 p-4 md:p-5">
+          <p className="text-sm font-semibold text-slate-500">Клініки</p>
+          <p className="mt-2 text-lg font-bold">3 звернення</p>
+          <p className="mt-1 text-sm text-slate-600">1 відповідь отримано, 2 очікуються</p>
+        </div>
+
+        <div className="rounded-2xl border border-slate-200 p-4 md:p-5">
+          <p className="text-sm font-semibold text-slate-500">Дослідження</p>
+          <p className="mt-2 text-lg font-bold">Моніторинг активний</p>
+          <p className="mt-1 text-sm text-slate-600">Нові сигнали передаються на оцінку лікаря</p>
         </div>
       </div>
     </div>
