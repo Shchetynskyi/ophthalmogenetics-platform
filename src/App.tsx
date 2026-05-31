@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 type Page =
-  | 'Кабінет сімʼї'
+  | 'Кабінет родини'
   | 'Картка пацієнта'
   | 'Стрічка супроводу'
   | 'Документи'
@@ -12,7 +12,7 @@ type Page =
   | 'Адмін-вид'
 
 const pages: Page[] = [
-  'Кабінет сімʼї',
+  'Кабінет родини',
   'Картка пацієнта',
   'Стрічка супроводу',
   'Документи',
@@ -32,30 +32,56 @@ function StatusBadge({ children }: { children: string }) {
 }
 
 function FamilyDashboard() {
+  const steps = [
+    ['1', 'Документ отримано', 'Родина або клініка додала файл'],
+    ['2', 'Виявлено системою', 'Подія потрапила у справу пацієнта'],
+    ['3', 'Оцінка лікаря', 'Лікар додає медичний висновок'],
+    ['4', 'Видимо родини', 'Родина бачить пояснення та наступні дії'],
+  ]
+
   return (
-    <div className="grid gap-4 md:grid-cols-3">
-      <div className="rounded-2xl border border-slate-200 p-5">
-        <p className="text-sm text-slate-500">Пацієнт</p>
-        <h2 className="mt-2 text-xl font-semibold">Марія К.</h2>
-        <p className="mt-2 text-sm text-slate-600">
-          Справа активна. Основний діагноз: пігментний ретиніт.
-        </p>
+    <div className="space-y-6">
+      <div className="grid gap-4 md:grid-cols-3">
+        <div className="rounded-2xl border border-slate-200 p-5">
+          <p className="text-sm text-slate-500">Пацієнт</p>
+          <h2 className="mt-2 text-xl font-semibold">Марія К.</h2>
+          <p className="mt-2 text-sm text-slate-600">
+            Справа активна. Основний діагноз: пігментний ретиніт.
+          </p>
+        </div>
+
+        <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5">
+          <p className="text-sm text-amber-700">Поточна подія</p>
+          <h2 className="mt-2 text-xl font-semibold">Очікує оцінки лікаря</h2>
+          <p className="mt-2 text-sm text-slate-600">
+            Додано генетичний висновок. Родина бачить, що документ ще не оцінений.
+          </p>
+        </div>
+
+        <div className="rounded-2xl border border-slate-200 p-5">
+          <p className="text-sm text-slate-500">Наступна дія</p>
+          <h2 className="mt-2 text-xl font-semibold">Висновок спеціаліста</h2>
+          <p className="mt-2 text-sm text-slate-600">
+            Після оцінки лікаря висновок стане видимим у кабінеті родини.
+          </p>
+        </div>
       </div>
 
-      <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5">
-        <p className="text-sm text-amber-700">Поточна подія</p>
-        <h2 className="mt-2 text-xl font-semibold">Очікує оцінки лікаря</h2>
-        <p className="mt-2 text-sm text-slate-600">
-          Додано генетичний висновок. Родина бачить, що документ ще не оцінений.
-        </p>
-      </div>
+      <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+        <p className="text-sm font-semibold text-blue-700">Інфографіка супроводу</p>
+        <h2 className="mt-2 text-2xl font-bold">Як рухається справа пацієнта</h2>
 
-      <div className="rounded-2xl border border-slate-200 p-5">
-        <p className="text-sm text-slate-500">Наступна дія</p>
-        <h2 className="mt-2 text-xl font-semibold">Висновок спеціаліста</h2>
-        <p className="mt-2 text-sm text-slate-600">
-          Після оцінки лікаря висновок стане видимим у кабінеті сімʼї.
-        </p>
+        <div className="mt-6 grid gap-4 md:grid-cols-4">
+          {steps.map(([number, title, description]) => (
+            <div key={title} className="rounded-2xl bg-white p-5 shadow-sm">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">
+                {number}
+              </div>
+              <p className="mt-4 font-semibold">{title}</p>
+              <p className="mt-2 text-sm text-slate-600">{description}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )
@@ -161,7 +187,7 @@ function DoctorCabinet() {
     <div className="rounded-2xl border border-slate-200 p-5">
       <h2 className="text-xl font-semibold">Робочий кабінет лікаря</h2>
       <p className="mt-3 text-slate-600">
-        Лікар бачить події, які очікують оцінки, додає висновок і відкриває його для сімʼї.
+        Лікар бачить події, які очікують оцінки, додає висновок і відкриває його для родини.
       </p>
     </div>
   )
@@ -194,7 +220,7 @@ function AdminView() {
 }
 
 function PageContent({ page }: { page: Page }) {
-  if (page === 'Кабінет сімʼї') return <FamilyDashboard />
+  if (page === 'Кабінет родини') return <FamilyDashboard />
   if (page === 'Картка пацієнта') return <PatientCard />
   if (page === 'Стрічка супроводу') return <Timeline />
   if (page === 'Документи') return <Documents />
@@ -206,7 +232,7 @@ function PageContent({ page }: { page: Page }) {
 }
 
 function App() {
-  const [activePage, setActivePage] = useState<Page>('Кабінет сімʼї')
+  const [activePage, setActivePage] = useState<Page>('Кабінет родини')
 
   return (
     <main className="min-h-screen bg-slate-100 text-slate-900">
