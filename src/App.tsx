@@ -195,13 +195,45 @@ function DoctorCabinet() {
 
 function ReviewQueue() {
   return (
-    <div className="space-y-4">
-      {['Генетичний висновок USH2A', 'ОКТ у динаміці', 'Відповідь клініки'].map((item) => (
-        <div key={item} className="rounded-2xl border border-amber-200 bg-amber-50 p-5">
-          <StatusBadge>Очікує оцінки лікаря</StatusBadge>
-          <p className="mt-3 font-semibold">{item}</p>
+    <div className="grid gap-6 lg:grid-cols-[1fr_380px]">
+      <div className="space-y-4">
+        {[
+          ['Генетичний висновок USH2A', 'Потрібно оцінити клінічне значення мутації'],
+          ['ОКТ у динаміці', 'Порівняти з попереднім обстеженням'],
+          ['Відповідь клініки', 'Перевірити, чи потрібні додаткові документи'],
+        ].map(([title, description]) => (
+          <button
+            key={title}
+            className="w-full rounded-2xl border border-amber-200 bg-amber-50 p-5 text-left transition hover:bg-amber-100"
+          >
+            <StatusBadge>Очікує оцінки лікаря</StatusBadge>
+            <p className="mt-3 font-semibold">{title}</p>
+            <p className="mt-2 text-sm text-slate-600">{description}</p>
+            <p className="mt-4 text-sm font-semibold text-blue-700">Відкрити оцінку →</p>
+          </button>
+        ))}
+      </div>
+
+      <aside className="rounded-2xl border border-slate-200 p-5">
+        <p className="text-sm font-semibold text-blue-700">Панель лікаря</p>
+        <h2 className="mt-2 text-xl font-semibold">Оцінка події</h2>
+
+        <div className="mt-5 rounded-2xl bg-slate-50 p-4">
+          <p className="text-sm text-slate-500">Тестовий висновок</p>
+          <p className="mt-2 text-sm text-slate-700">
+            Виявлений варіант потребує зіставлення з клінічною картиною,
+            родинним анамнезом та результатами ОКТ/ЕРГ.
+          </p>
         </div>
-      ))}
+
+        <button className="mt-5 w-full rounded-2xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white">
+          Опублікувати висновок для родини
+        </button>
+
+        <p className="mt-3 text-xs text-slate-500">
+          Після публікації статус зміниться на “Оцінено лікарем”.
+        </p>
+      </aside>
     </div>
   )
 }
