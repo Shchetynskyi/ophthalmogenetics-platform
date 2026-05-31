@@ -393,20 +393,6 @@ function App() {
           <h1 className="mt-3 text-xl font-bold md:text-2xl tracking-tight md:text-4xl">{activePage}</h1>
 
 
-          <div className="mt-2 grid grid-cols-2 gap-2 md:mt-6 md:grid-cols-4 md:gap-3">
-            {[
-              ['Статус справи', 'Активна'],
-              ['Очікує лікаря', '3 події'],
-              ['Відповіді клінік', '1 отримана'],
-              ['Задачі родини', '2 відкриті'],
-            ].map(([label, value]) => (
-              <div key={label} className="rounded-xl bg-slate-50 p-3 md:rounded-2xl md:p-4">
-                <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{label}</p>
-                <p className="mt-2 text-lg font-bold">{value}</p>
-              </div>
-            ))}
-          </div>
-
           <div className="mt-5 md:mt-8">
             <PageContent page={activePage} />
           </div>
