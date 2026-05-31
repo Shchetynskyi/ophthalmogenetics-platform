@@ -8,6 +8,7 @@ type Page =
   | 'Дослідження і лікування'
   | 'Обмін документами'
   | 'Листи до клінік'
+  | 'Задачі родини'
   | 'Кабінет лікаря'
   | 'Черга оцінок'
   | 'Адмін-вид'
@@ -20,6 +21,7 @@ const pages: Page[] = [
   'Дослідження і лікування',
   'Обмін документами',
   'Листи до клінік',
+  'Задачі родини',
   'Кабінет лікаря',
   'Черга оцінок',
   'Адмін-вид',
@@ -216,6 +218,29 @@ function ClinicLetters() {
   )
 }
 
+
+function FamilyTasks() {
+  return (
+    <div className="space-y-4">
+      {[
+        ['Завантажити попереднє ОКТ', 'Потрібно для порівняння динаміки', 'Потрібні додаткові документи'],
+        ['Підтвердити згоду на лист до клініки', 'Після згоди команда надішле пакет документів', 'Очікує оцінки лікаря'],
+        ['Ознайомитись із перекладеним генетичним висновком', 'Переклад підготовлено командою для звернення до закордонної клініки', 'Виявлено системою'],
+      ].map(([title, description, status]) => (
+        <div key={title} className="rounded-2xl border border-slate-200 p-5">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <p className="font-semibold">{title}</p>
+              <p className="mt-2 text-sm text-slate-600">{description}</p>
+            </div>
+            <StatusBadge>{status}</StatusBadge>
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
 function DoctorCabinet() {
   return (
     <div className="rounded-2xl border border-slate-200 p-5">
@@ -293,6 +318,7 @@ function PageContent({ page }: { page: Page }) {
   if (page === 'Дослідження і лікування') return <ResearchMonitoring />
   if (page === 'Обмін документами') return <DocumentExchange />
   if (page === 'Листи до клінік') return <ClinicLetters />
+  if (page === 'Задачі родини') return <FamilyTasks />
   if (page === 'Кабінет лікаря') return <DoctorCabinet />
   if (page === 'Черга оцінок') return <ReviewQueue />
   return <AdminView />
