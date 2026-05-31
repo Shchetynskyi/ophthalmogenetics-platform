@@ -38,90 +38,83 @@ function StatusBadge({ children }: { children: string }) {
 function FamilyDashboard() {
   return (
     <div className="space-y-4">
-      <div className="rounded-2xl border border-blue-200 bg-blue-50 p-4 md:p-6">
-        <p className="text-sm font-semibold text-blue-700">Справа пацієнта</p>
+      <section className="rounded-2xl border border-blue-200 bg-blue-50 p-4 md:p-6">
+        <p className="text-sm font-semibold text-blue-700">Супровід справи</p>
         <h2 className="mt-2 text-3xl font-bold">Марія К.</h2>
         <p className="mt-2 text-sm text-slate-700">
-          Пігментний ретиніт • ген USH2A • мутація c.2299delG
+          Пігментний ретиніт • ген USH2A
         </p>
+
         <div className="mt-4 rounded-xl bg-amber-100 px-4 py-3 text-sm font-semibold text-amber-900">
           🟡 Справа на розгляді лікаря
         </div>
-      </div>
+      </section>
 
       <section className="rounded-2xl border border-slate-200 p-4 md:p-5">
         <p className="text-sm font-semibold text-blue-700">Що відбувається зараз</p>
-        <p className="mt-3 text-lg font-bold">🧬 Отримано генетичний висновок USH2A</p>
+        <p className="mt-3 text-lg font-bold">
+          🧬 Лікар аналізує генетичний висновок
+        </p>
         <p className="mt-2 text-sm text-slate-600">
-          Документ додано до справи. Лікар має оцінити його значення разом із
-          клінічною картиною та попередніми обстеженнями.
+          Висновок USH2A вже додано до справи. Лікар перевіряє, як він повʼязаний
+          із симптомами, обстеженнями та можливими подальшими діями.
+        </p>
+      </section>
+
+      <section className="rounded-2xl border border-green-200 bg-green-50 p-4 md:p-5">
+        <p className="text-sm font-semibold text-green-800">Що буде далі</p>
+        <p className="mt-3 text-lg font-bold">Публікація висновку для родини</p>
+        <p className="mt-2 text-sm text-slate-700">
+          Після оцінки лікаря ви побачите короткий висновок, пояснення ситуації
+          та рекомендовані наступні кроки.
         </p>
       </section>
 
       <section className="rounded-2xl border border-slate-200 p-4 md:p-5">
-        <p className="text-sm font-semibold text-blue-700">Стрічка справи</p>
+        <p className="text-sm font-semibold text-blue-700">План супроводу</p>
         <div className="mt-4 space-y-3">
           {[
-            ['15.05', '🧬 Генетичний висновок отримано', 'Виявлено системою'],
-            ['18.05', '📄 Переклад документів завершено', 'Закрито'],
-            ['21.05', '📤 Лист до Charité Berlin надіслано', 'Очікуємо відповідь'],
-            ['28.05', '📥 Отримано відповідь Institut de la Vision', 'Потрібні додаткові документи'],
-            ['30.05', '👨‍⚕️ Генетичний висновок передано лікарю', 'Очікує оцінки лікаря'],
-          ].map(([date, title, status]) => (
+            ['✅', 'Генетичний висновок отримано', 'Документ додано до справи'],
+            ['✅', 'Переклад документів завершено', 'Пакет документів підготовлено'],
+            ['🟡', 'Оцінка лікаря', 'Виконується зараз'],
+            ['🟡', 'Пошук релевантних досліджень', 'Команда перевіряє оновлення по USH2A'],
+            ['⚪', 'Звернення до клінік', 'Заплановано наступні відправки'],
+            ['⚪', 'Рекомендації для родини', 'Буде після оцінки лікаря'],
+          ].map(([icon, title, description]) => (
             <div key={title} className="flex gap-3 rounded-xl bg-slate-50 p-3">
-              <div className="w-12 shrink-0 text-sm font-bold text-slate-500">{date}</div>
-              <div className="min-w-0 flex-1">
+              <div className="w-8 shrink-0 text-lg">{icon}</div>
+              <div>
                 <p className="text-sm font-semibold text-slate-900">{title}</p>
-                <p className="mt-1 text-xs text-slate-500">{status}</p>
+                <p className="mt-1 text-xs text-slate-500">{description}</p>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      <div className="grid gap-4 md:grid-cols-2">
-        <section className="rounded-2xl border border-amber-200 bg-amber-50 p-4 md:p-5">
-          <p className="text-sm font-semibold text-amber-800">Потрібно від родини</p>
-          <ul className="mt-3 space-y-2 text-sm text-slate-700">
-            <li>• Завантажити попереднє ОКТ для порівняння динаміки</li>
-            <li>• Підтвердити згоду на звернення до закордонної клініки</li>
-          </ul>
-        </section>
-
-        <section className="rounded-2xl border border-slate-200 p-4 md:p-5">
-          <p className="text-sm font-semibold text-blue-700">Що робить лікар</p>
-          <ul className="mt-3 space-y-2 text-sm text-slate-700">
-            <li>• Оцінює генетичний висновок</li>
-            <li>• Зіставляє мутацію з ОКТ, ЕРГ та симптомами</li>
-            <li>• Готує короткий висновок для родини</li>
-          </ul>
-        </section>
-      </div>
-
       <section className="rounded-2xl border border-slate-200 p-4 md:p-5">
-        <p className="text-sm font-semibold text-blue-700">Клініки та документи</p>
-        <div className="mt-3 space-y-3 text-sm text-slate-700">
-          <p>• Лист до Charité Berlin надіслано, відповідь очікується.</p>
-          <p>• Institut de la Vision відповів і просить додаткові документи.</p>
-          <p>• Переклад генетичного висновку підготовлено командою.</p>
+        <p className="text-sm font-semibold text-blue-700">Останні зміни</p>
+        <div className="mt-4 space-y-3">
+          {[
+            ['30.05', '👨‍⚕️ Генетичний висновок передано лікарю'],
+            ['28.05', '📥 Отримано відповідь Institut de la Vision'],
+            ['21.05', '📤 Лист до Charité Berlin надіслано'],
+            ['18.05', '📄 Переклад документів завершено'],
+          ].map(([date, title]) => (
+            <div key={title} className="flex gap-3 rounded-xl bg-slate-50 p-3">
+              <div className="w-12 shrink-0 text-sm font-bold text-slate-500">{date}</div>
+              <p className="text-sm font-semibold text-slate-900">{title}</p>
+            </div>
+          ))}
         </div>
       </section>
 
-      <section className="rounded-2xl border border-slate-200 p-4 md:p-5">
-        <p className="text-sm font-semibold text-blue-700">Нові дослідження і лікування</p>
-        <div className="mt-3 space-y-3 text-sm text-slate-700">
-          <p>• Знайдено нове клінічне дослідження для пацієнтів із USH2A.</p>
-          <p>• Виробник оновив програму ранніх досліджень.</p>
-          <p>• Лікар має оцінити, чи це релевантно для цієї справи.</p>
-        </div>
-      </section>
-
-      <section className="rounded-2xl border border-green-200 bg-green-50 p-4 md:p-5">
-        <p className="text-sm font-semibold text-green-800">Наступний крок</p>
-        <p className="mt-2 text-lg font-bold">Лікар оцінює генетичний висновок</p>
-        <p className="mt-2 text-sm text-slate-700">
-          Після оцінки родина побачить висновок і зрозумілий план подальших дій.
-        </p>
+      <section className="rounded-2xl border border-amber-200 bg-amber-50 p-4 md:p-5">
+        <p className="text-sm font-semibold text-amber-800">Потрібно від родини</p>
+        <ul className="mt-3 space-y-2 text-sm text-slate-700">
+          <li>• Завантажити попереднє ОКТ для порівняння динаміки</li>
+          <li>• Підтвердити згоду на звернення до закордонної клініки</li>
+        </ul>
       </section>
     </div>
   )
