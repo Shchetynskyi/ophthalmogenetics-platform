@@ -329,18 +329,18 @@ function App() {
 
   return (
     <main className="min-h-screen bg-slate-100 text-slate-900">
-      <div className="mx-auto flex max-w-7xl gap-6 px-6 py-8">
-        <aside className="w-72 shrink-0 rounded-3xl bg-white p-5 shadow-sm">
+      <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-4 md:flex-row md:px-6 md:py-8">
+        <aside className="w-full shrink-0 rounded-3xl bg-white p-4 shadow-sm md:w-72 md:p-5">
           <p className="text-sm font-semibold text-blue-700">
             Офтальмогенетична платформа
           </p>
 
-          <nav className="mt-6 space-y-2">
+          <nav className="mt-4 flex gap-2 overflow-x-auto pb-2 md:mt-6 md:block md:space-y-2 md:overflow-visible md:pb-0">
             {pages.map((page) => (
               <button
                 key={page}
                 onClick={() => setActivePage(page)}
-                className={`w-full rounded-2xl px-4 py-3 text-left text-sm font-medium transition ${
+                className={`shrink-0 rounded-2xl px-4 py-3 text-left text-sm font-medium transition md:w-full ${
                   activePage === page
                     ? 'bg-blue-600 text-white'
                     : 'text-slate-600 hover:bg-slate-100'
@@ -352,9 +352,9 @@ function App() {
           </nav>
         </aside>
 
-        <section className="min-h-[720px] flex-1 rounded-3xl bg-white p-8 shadow-sm">
+        <section className="min-h-[720px] flex-1 rounded-3xl bg-white p-5 shadow-sm md:p-8">
           <p className="text-sm font-semibold text-blue-700">{activePage}</p>
-          <h1 className="mt-3 text-4xl font-bold tracking-tight">{activePage}</h1>
+          <h1 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">{activePage}</h1>
           <p className="mt-4 max-w-3xl text-lg text-slate-600">
             Клікабельний MVP для обговорення структури супроводу пацієнтів із
             генетичними захворюваннями сітківки.
