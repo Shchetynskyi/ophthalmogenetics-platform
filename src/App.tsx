@@ -36,51 +36,72 @@ function StatusBadge({ children }: { children: string }) {
 }
 
 function FamilyDashboard() {
-  const news = [
-    'Отримано генетичний висновок USH2A',
-    'Отримано відповідь клініки Institut de la Vision',
-    'Знайдено нове клінічне дослідження',
-  ]
-
   return (
-    <div className="space-y-5">
+    <div className="space-y-4">
       <div className="rounded-2xl border border-blue-200 bg-blue-50 p-4 md:p-6">
-        
-        <div className="mt-3 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div>
-            <h2 className="text-2xl font-bold md:text-3xl">Марія К.</h2>
-            <p className="mt-2 text-sm text-slate-700">
-              Пігментний ретиніт • ген USH2A • мутація c.2299delG
-            </p>
-          </div>
-          <div className="rounded-xl bg-amber-100 px-4 py-3 text-sm font-semibold text-amber-900">
-            Очікує оцінки лікаря
-          </div>
+        <p className="text-sm font-semibold text-blue-700">Справа пацієнта</p>
+        <h2 className="mt-2 text-3xl font-bold">Марія К.</h2>
+        <p className="mt-2 text-sm text-slate-700">
+          Пігментний ретиніт • ген USH2A • мутація c.2299delG
+        </p>
+        <div className="mt-4 rounded-xl bg-amber-100 px-4 py-3 text-sm font-semibold text-amber-900">
+          Зараз справа очікує оцінки лікаря
         </div>
       </div>
 
+      <section className="rounded-2xl border border-slate-200 p-4 md:p-5">
+        <p className="text-sm font-semibold text-blue-700">Що відбувається зараз</p>
+        <p className="mt-3 text-lg font-bold">Отримано генетичний висновок USH2A</p>
+        <p className="mt-2 text-sm text-slate-600">
+          Документ додано до справи. Лікар має оцінити його значення разом із
+          клінічною картиною та попередніми обстеженнями.
+        </p>
+      </section>
 
-      <div className="grid gap-4 lg:grid-cols-[1fr_360px]">
-        <section className="rounded-2xl border border-slate-200 p-4 md:p-5">
-          <p className="text-sm font-semibold text-blue-700">Що нового</p>
-          <div className="mt-4 space-y-3">
-            {news.map((item) => (
-              <div key={item} className="rounded-xl bg-slate-50 p-3 text-sm text-slate-700">
-                {item}
-              </div>
-            ))}
-          </div>
+      <div className="grid gap-4 md:grid-cols-2">
+        <section className="rounded-2xl border border-amber-200 bg-amber-50 p-4 md:p-5">
+          <p className="text-sm font-semibold text-amber-800">Потрібно від родини</p>
+          <ul className="mt-3 space-y-2 text-sm text-slate-700">
+            <li>• Завантажити попереднє ОКТ для порівняння динаміки</li>
+            <li>• Підтвердити згоду на звернення до закордонної клініки</li>
+          </ul>
         </section>
 
-        <section className="rounded-2xl border border-amber-200 bg-amber-50 p-4 md:p-5">
-          <p className="text-sm font-semibold text-amber-800">Наступний крок</p>
-          <h3 className="mt-2 text-lg font-bold">Оцінити генетичний висновок</h3>
-          <p className="mt-2 text-sm text-slate-700">
-            Лікар має додати короткий висновок. Після цього він стане видимим для родини.
-          </p>
+        <section className="rounded-2xl border border-slate-200 p-4 md:p-5">
+          <p className="text-sm font-semibold text-blue-700">Що робить лікар</p>
+          <ul className="mt-3 space-y-2 text-sm text-slate-700">
+            <li>• Оцінює генетичний висновок</li>
+            <li>• Зіставляє мутацію з ОКТ, ЕРГ та симптомами</li>
+            <li>• Готує короткий висновок для родини</li>
+          </ul>
         </section>
       </div>
 
+      <section className="rounded-2xl border border-slate-200 p-4 md:p-5">
+        <p className="text-sm font-semibold text-blue-700">Клініки та документи</p>
+        <div className="mt-3 space-y-3 text-sm text-slate-700">
+          <p>• Лист до Charité Berlin надіслано, відповідь очікується.</p>
+          <p>• Institut de la Vision відповів і просить додаткові документи.</p>
+          <p>• Переклад генетичного висновку підготовлено командою.</p>
+        </div>
+      </section>
+
+      <section className="rounded-2xl border border-slate-200 p-4 md:p-5">
+        <p className="text-sm font-semibold text-blue-700">Нові дослідження і лікування</p>
+        <div className="mt-3 space-y-3 text-sm text-slate-700">
+          <p>• Знайдено нове клінічне дослідження для пацієнтів із USH2A.</p>
+          <p>• Виробник оновив програму ранніх досліджень.</p>
+          <p>• Лікар має оцінити, чи це релевантно для цієї справи.</p>
+        </div>
+      </section>
+
+      <section className="rounded-2xl border border-green-200 bg-green-50 p-4 md:p-5">
+        <p className="text-sm font-semibold text-green-800">Наступний крок</p>
+        <p className="mt-2 text-lg font-bold">Лікар оцінює генетичний висновок</p>
+        <p className="mt-2 text-sm text-slate-700">
+          Після оцінки родина побачить висновок і зрозумілий план подальших дій.
+        </p>
+      </section>
     </div>
   )
 }
