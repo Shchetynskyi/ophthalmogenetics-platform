@@ -45,13 +45,13 @@ function FamilyDashboard() {
           Пігментний ретиніт • ген USH2A • мутація c.2299delG
         </p>
         <div className="mt-4 rounded-xl bg-amber-100 px-4 py-3 text-sm font-semibold text-amber-900">
-          Зараз справа очікує оцінки лікаря
+          🟡 Справа на розгляді лікаря
         </div>
       </div>
 
       <section className="rounded-2xl border border-slate-200 p-4 md:p-5">
         <p className="text-sm font-semibold text-blue-700">Що відбувається зараз</p>
-        <p className="mt-3 text-lg font-bold">Отримано генетичний висновок USH2A</p>
+        <p className="mt-3 text-lg font-bold">🧬 Отримано генетичний висновок USH2A</p>
         <p className="mt-2 text-sm text-slate-600">
           Документ додано до справи. Лікар має оцінити його значення разом із
           клінічною картиною та попередніми обстеженнями.
@@ -62,11 +62,11 @@ function FamilyDashboard() {
         <p className="text-sm font-semibold text-blue-700">Стрічка справи</p>
         <div className="mt-4 space-y-3">
           {[
-            ['15.05', 'Генетичний висновок отримано', 'Виявлено системою'],
-            ['18.05', 'Переклад документів завершено', 'Закрито'],
-            ['21.05', 'Лист до Charité Berlin надіслано', 'Очікуємо відповідь'],
-            ['28.05', 'Отримано відповідь Institut de la Vision', 'Потрібні додаткові документи'],
-            ['30.05', 'Генетичний висновок передано лікарю', 'Очікує оцінки лікаря'],
+            ['15.05', '🧬 Генетичний висновок отримано', 'Виявлено системою'],
+            ['18.05', '📄 Переклад документів завершено', 'Закрито'],
+            ['21.05', '📤 Лист до Charité Berlin надіслано', 'Очікуємо відповідь'],
+            ['28.05', '📥 Отримано відповідь Institut de la Vision', 'Потрібні додаткові документи'],
+            ['30.05', '👨‍⚕️ Генетичний висновок передано лікарю', 'Очікує оцінки лікаря'],
           ].map(([date, title, status]) => (
             <div key={title} className="flex gap-3 rounded-xl bg-slate-50 p-3">
               <div className="w-12 shrink-0 text-sm font-bold text-slate-500">{date}</div>
