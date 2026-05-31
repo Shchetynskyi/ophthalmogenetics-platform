@@ -42,13 +42,6 @@ function FamilyDashboard() {
     'Знайдено нове клінічне дослідження',
   ]
 
-  const counters = [
-    ['Очікує лікаря', '3', 'відкриті оцінки'],
-    ['Задачі родини', '2', 'потрібна дія'],
-    ['Клініки', '1/3', 'відповідь отримано'],
-    ['Дослідження', '3', 'нові сигнали'],
-  ]
-
   return (
     <div className="space-y-5">
       <div className="rounded-2xl border border-blue-200 bg-blue-50 p-4 md:p-6">
@@ -66,15 +59,6 @@ function FamilyDashboard() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-3">
-        {counters.map(([label, value, hint]) => (
-          <div key={label} className="rounded-xl border border-slate-200 bg-white p-4">
-            <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{label}</p>
-            <p className="mt-2 text-2xl font-bold text-slate-900">{value}</p>
-            <p className="mt-1 text-xs text-slate-500">{hint}</p>
-          </div>
-        ))}
-      </div>
 
       <div className="grid gap-4 lg:grid-cols-[1fr_360px]">
         <section className="rounded-2xl border border-slate-200 p-4 md:p-5">
@@ -97,25 +81,6 @@ function FamilyDashboard() {
         </section>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-3">
-        <div className="rounded-2xl border border-slate-200 p-4 md:p-5">
-          <p className="text-sm font-semibold text-slate-500">Документи</p>
-          <p className="mt-2 text-lg font-bold">4 файли у справі</p>
-          <p className="mt-1 text-sm text-slate-600">1 документ очікує оцінки лікаря</p>
-        </div>
-
-        <div className="rounded-2xl border border-slate-200 p-4 md:p-5">
-          <p className="text-sm font-semibold text-slate-500">Клініки</p>
-          <p className="mt-2 text-lg font-bold">3 звернення</p>
-          <p className="mt-1 text-sm text-slate-600">1 відповідь отримано, 2 очікуються</p>
-        </div>
-
-        <div className="rounded-2xl border border-slate-200 p-4 md:p-5">
-          <p className="text-sm font-semibold text-slate-500">Дослідження</p>
-          <p className="mt-2 text-lg font-bold">Моніторинг активний</p>
-          <p className="mt-1 text-sm text-slate-600">Нові сигнали передаються на оцінку лікаря</p>
-        </div>
-      </div>
     </div>
   )
 }
