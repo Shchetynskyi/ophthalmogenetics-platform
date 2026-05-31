@@ -46,7 +46,7 @@ function FamilyDashboard() {
   return (
     <div className="space-y-6">
       <div className="grid gap-4 md:grid-cols-3">
-        <div className="rounded-2xl border border-slate-200 p-5">
+        <div className="rounded-xl border border-slate-200 p-4 md:rounded-2xl md:p-5">
           <p className="text-sm text-slate-500">Пацієнт</p>
           <h2 className="mt-2 text-xl font-semibold">Марія К.</h2>
           <p className="mt-2 text-sm text-slate-600">
@@ -54,7 +54,7 @@ function FamilyDashboard() {
           </p>
         </div>
 
-        <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5">
+        <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 md:rounded-2xl md:p-5">
           <p className="text-sm text-amber-700">Поточна подія</p>
           <h2 className="mt-2 text-xl font-semibold">Очікує оцінки лікаря</h2>
           <p className="mt-2 text-sm text-slate-600">
@@ -62,7 +62,7 @@ function FamilyDashboard() {
           </p>
         </div>
 
-        <div className="rounded-2xl border border-slate-200 p-5">
+        <div className="rounded-xl border border-slate-200 p-4 md:rounded-2xl md:p-5">
           <p className="text-sm text-slate-500">Наступна дія</p>
           <h2 className="mt-2 text-xl font-semibold">Висновок спеціаліста</h2>
           <p className="mt-2 text-sm text-slate-600">
@@ -71,13 +71,13 @@ function FamilyDashboard() {
         </div>
       </div>
 
-      <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+      <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 md:rounded-3xl md:p-6">
         <p className="text-sm font-semibold text-blue-700">Інфографіка супроводу</p>
-        <h2 className="mt-2 text-2xl font-bold">Як рухається справа пацієнта</h2>
+        <h2 className="mt-2 text-xl font-bold md:text-2xl">Як рухається справа пацієнта</h2>
 
-        <div className="mt-6 grid gap-4 md:grid-cols-4">
+        <div className="mt-4 grid gap-3 md:mt-6 md:grid-cols-4 md:gap-4">
           {steps.map(([number, title, description]) => (
-            <div key={title} className="rounded-2xl bg-white p-5 shadow-sm">
+            <div key={title} className="rounded-xl bg-white p-4 shadow-sm md:rounded-2xl md:p-5">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">
                 {number}
               </div>
@@ -100,7 +100,7 @@ function PatientCard() {
         ['Мутація', 'c.2299delG'],
         ['Поточна справа', 'Супровід активний'],
       ].map(([label, value]) => (
-        <div key={label} className="rounded-2xl border border-slate-200 p-5">
+        <div key={label} className="rounded-xl border border-slate-200 p-4 md:rounded-2xl md:p-5">
           <p className="text-sm text-slate-500">{label}</p>
           <p className="mt-2 text-xl font-semibold">{value}</p>
         </div>
@@ -117,7 +117,7 @@ function Timeline() {
         ['Очікує оцінки лікаря', 'Потрібно підтвердити клінічне значення мутації'],
         ['Очікуємо відповідь', 'Надіслано лист до клініки в Німеччині'],
       ].map(([status, text]) => (
-        <div key={text} className="rounded-2xl border border-slate-200 p-5">
+        <div key={text} className="rounded-xl border border-slate-200 p-4 md:rounded-2xl md:p-5">
           <StatusBadge>{status}</StatusBadge>
           <p className="mt-3 text-slate-700">{text}</p>
         </div>
@@ -130,7 +130,7 @@ function Documents() {
   return (
     <div className="space-y-4">
       {['ОКТ сітківки.pdf', 'ЕРГ дослідження.pdf', 'Генетичний тест.pdf', 'Лист до клініки.docx'].map((doc) => (
-        <div key={doc} className="flex items-center justify-between rounded-2xl border border-slate-200 p-5">
+        <div key={doc} className="flex items-center justify-between rounded-xl border border-slate-200 p-4 md:rounded-2xl md:p-5">
           <p className="font-medium">{doc}</p>
           <StatusBadge>Очікує оцінки лікаря</StatusBadge>
         </div>
@@ -149,7 +149,7 @@ function ResearchMonitoring() {
         ['Потенційний препарат', 'Новий препарат на ранній фазі дослідження', 'Очікує оцінки лікаря'],
         ['Клініка за кордоном', 'Клініка в Німеччині приймає запити щодо IRD', 'Очікуємо відповідь'],
       ].map(([title, text, status]) => (
-        <div key={title} className="rounded-2xl border border-slate-200 p-5">
+        <div key={title} className="rounded-xl border border-slate-200 p-4 md:rounded-2xl md:p-5">
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="font-semibold">{title}</p>
@@ -172,7 +172,7 @@ function DocumentExchange() {
         ['Лист до клініки', 'Розіслано до 3 клінік', 'Очікуємо відповідь'],
         ['Відповідь клініки', 'Отримано відповідь, потрібні додаткові документи', 'Потрібні додаткові документи'],
       ].map(([title, text, status]) => (
-        <div key={title} className="rounded-2xl border border-slate-200 p-5">
+        <div key={title} className="rounded-xl border border-slate-200 p-4 md:rounded-2xl md:p-5">
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="font-semibold">{title}</p>
@@ -195,7 +195,7 @@ function ClinicLetters() {
         ['Moorfields Eye Hospital', 'Велика Британія', 'Документи перекладено', 'Очікує оцінки лікаря'],
         ['Institut de la Vision', 'Франція', 'Отримано відповідь', 'Потрібні додаткові документи'],
       ].map(([clinic, country, action, status]) => (
-        <div key={clinic} className="rounded-2xl border border-slate-200 p-5">
+        <div key={clinic} className="rounded-xl border border-slate-200 p-4 md:rounded-2xl md:p-5">
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="text-sm text-slate-500">{country}</p>
@@ -227,7 +227,7 @@ function FamilyTasks() {
         ['Підтвердити згоду на лист до клініки', 'Після згоди команда надішле пакет документів', 'Очікує оцінки лікаря'],
         ['Ознайомитись із перекладеним генетичним висновком', 'Переклад підготовлено командою для звернення до закордонної клініки', 'Виявлено системою'],
       ].map(([title, description, status]) => (
-        <div key={title} className="rounded-2xl border border-slate-200 p-5">
+        <div key={title} className="rounded-xl border border-slate-200 p-4 md:rounded-2xl md:p-5">
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="font-semibold">{title}</p>
@@ -243,7 +243,7 @@ function FamilyTasks() {
 
 function DoctorCabinet() {
   return (
-    <div className="rounded-2xl border border-slate-200 p-5">
+    <div className="rounded-xl border border-slate-200 p-4 md:rounded-2xl md:p-5">
       <h2 className="text-xl font-semibold">Робочий кабінет лікаря</h2>
       <p className="mt-3 text-slate-600">
         Лікар бачить події, які очікують оцінки, додає висновок і відкриває його для родини.
@@ -263,7 +263,7 @@ function ReviewQueue() {
         ].map(([title, description]) => (
           <button
             key={title}
-            className="w-full rounded-2xl border border-amber-200 bg-amber-50 p-5 text-left transition hover:bg-amber-100"
+            className="w-full rounded-xl border border-amber-200 bg-amber-50 p-4 md:rounded-2xl md:p-5 text-left transition hover:bg-amber-100"
           >
             <StatusBadge>Очікує оцінки лікаря</StatusBadge>
             <p className="mt-3 font-semibold">{title}</p>
@@ -273,11 +273,11 @@ function ReviewQueue() {
         ))}
       </div>
 
-      <aside className="rounded-2xl border border-slate-200 p-5">
+      <aside className="rounded-xl border border-slate-200 p-4 md:rounded-2xl md:p-5">
         <p className="text-sm font-semibold text-blue-700">Панель лікаря</p>
         <h2 className="mt-2 text-xl font-semibold">Оцінка події</h2>
 
-        <div className="mt-5 rounded-2xl bg-slate-50 p-4">
+        <div className="mt-5 rounded-xl bg-slate-50 p-3 md:rounded-2xl md:p-4">
           <p className="text-sm text-slate-500">Тестовий висновок</p>
           <p className="mt-2 text-sm text-slate-700">
             Виявлений варіант потребує зіставлення з клінічною картиною,
@@ -301,7 +301,7 @@ function AdminView() {
   return (
     <div className="grid gap-4 md:grid-cols-2">
       {['Пацієнт', 'Справа пацієнта', 'Діагноз', 'Ген', 'Мутація', 'Документ', 'Подія', 'Оцінка лікаря'].map((entity) => (
-        <div key={entity} className="rounded-2xl border border-slate-200 p-5">
+        <div key={entity} className="rounded-xl border border-slate-200 p-4 md:rounded-2xl md:p-5">
           <p className="font-semibold">{entity}</p>
           <p className="mt-2 text-sm text-slate-500">Тестова сутність MVP</p>
         </div>
@@ -330,17 +330,17 @@ function App() {
   return (
     <main className="min-h-screen bg-slate-100 text-slate-900">
       <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-4 md:flex-row md:px-6 md:py-8">
-        <aside className="w-full shrink-0 rounded-3xl bg-white p-4 shadow-sm md:w-72 md:p-5">
+        <aside className="w-full shrink-0 rounded-2xl bg-white p-3 shadow-sm md:w-72 md:rounded-3xl md:p-5">
           <p className="text-sm font-semibold text-blue-700">
             Офтальмогенетична платформа
           </p>
 
-          <nav className="mt-4 flex gap-2 overflow-x-auto pb-2 md:mt-6 md:block md:space-y-2 md:overflow-visible md:pb-0">
+          <nav className="mt-3 flex gap-2 overflow-x-auto pb-1 md:mt-6 md:block md:space-y-2 md:overflow-visible md:pb-0">
             {pages.map((page) => (
               <button
                 key={page}
                 onClick={() => setActivePage(page)}
-                className={`shrink-0 rounded-2xl px-4 py-3 text-left text-sm font-medium transition md:w-full ${
+                className={`shrink-0 rounded-xl px-3 py-2 text-left text-sm font-medium transition md:w-full ${
                   activePage === page
                     ? 'bg-blue-600 text-white'
                     : 'text-slate-600 hover:bg-slate-100'
@@ -352,29 +352,29 @@ function App() {
           </nav>
         </aside>
 
-        <section className="min-h-[720px] flex-1 rounded-3xl bg-white p-5 shadow-sm md:p-8">
+        <section className="min-h-[720px] flex-1 rounded-2xl bg-white p-4 shadow-sm md:rounded-3xl md:p-8">
           <p className="text-sm font-semibold text-blue-700">{activePage}</p>
-          <h1 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">{activePage}</h1>
-          <p className="mt-4 max-w-3xl text-lg text-slate-600">
+          <h1 className="mt-3 text-xl font-bold md:text-2xl tracking-tight md:text-4xl">{activePage}</h1>
+          <p className="mt-3 max-w-3xl text-sm text-slate-600 md:text-lg">
             Клікабельний MVP для обговорення структури супроводу пацієнтів із
             генетичними захворюваннями сітківки.
           </p>
 
-          <div className="mt-6 grid gap-3 md:grid-cols-4">
+          <div className="mt-4 grid grid-cols-2 gap-2 md:mt-6 md:grid-cols-4 md:gap-3">
             {[
               ['Статус справи', 'Активна'],
               ['Очікує лікаря', '3 події'],
               ['Відповіді клінік', '1 отримана'],
               ['Задачі родини', '2 відкриті'],
             ].map(([label, value]) => (
-              <div key={label} className="rounded-2xl bg-slate-50 p-4">
+              <div key={label} className="rounded-xl bg-slate-50 p-3 md:rounded-2xl md:p-4">
                 <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{label}</p>
                 <p className="mt-2 text-lg font-bold">{value}</p>
               </div>
             ))}
           </div>
 
-          <div className="mt-8">
+          <div className="mt-5 md:mt-8">
             <PageContent page={activePage} />
           </div>
         </section>
