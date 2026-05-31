@@ -52,7 +52,7 @@ function FamilyDashboard() {
   return (
     <div className="space-y-5">
       <div className="rounded-2xl border border-blue-200 bg-blue-50 p-4 md:p-6">
-        <p className="text-sm font-semibold text-blue-700">Панель справи пацієнта</p>
+        
         <div className="mt-3 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <h2 className="text-2xl font-bold md:text-3xl">Марія К.</h2>
@@ -382,14 +382,11 @@ function App() {
         </aside>
 
         <section className="min-h-[720px] flex-1 rounded-2xl bg-white p-4 shadow-sm md:rounded-3xl md:p-8">
-          <p className="text-sm font-semibold text-blue-700">{activePage}</p>
+          
           <h1 className="mt-3 text-xl font-bold md:text-2xl tracking-tight md:text-4xl">{activePage}</h1>
-          <p className="mt-3 max-w-3xl text-sm text-slate-600 md:text-lg">
-            Клікабельний MVP для обговорення структури супроводу пацієнтів із
-            генетичними захворюваннями сітківки.
-          </p>
 
-          <div className="mt-4 grid grid-cols-2 gap-2 md:mt-6 md:grid-cols-4 md:gap-3">
+
+          <div className="mt-2 grid grid-cols-2 gap-2 md:mt-6 md:grid-cols-4 md:gap-3">
             {[
               ['Статус справи', 'Активна'],
               ['Очікує лікаря', '3 події'],
