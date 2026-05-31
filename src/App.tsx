@@ -7,6 +7,7 @@ type Page =
   | 'Документи'
   | 'Дослідження і лікування'
   | 'Обмін документами'
+  | 'Листи до клінік'
   | 'Кабінет лікаря'
   | 'Черга оцінок'
   | 'Адмін-вид'
@@ -18,6 +19,7 @@ const pages: Page[] = [
   'Документи',
   'Дослідження і лікування',
   'Обмін документами',
+  'Листи до клінік',
   'Кабінет лікаря',
   'Черга оцінок',
   'Адмін-вид',
@@ -182,6 +184,38 @@ function DocumentExchange() {
   )
 }
 
+
+function ClinicLetters() {
+  return (
+    <div className="space-y-4">
+      {[
+        ['Charité Berlin', 'Німеччина', 'Лист розіслано', 'Очікуємо відповідь'],
+        ['Moorfields Eye Hospital', 'Велика Британія', 'Документи перекладено', 'Очікує оцінки лікаря'],
+        ['Institut de la Vision', 'Франція', 'Отримано відповідь', 'Потрібні додаткові документи'],
+      ].map(([clinic, country, action, status]) => (
+        <div key={clinic} className="rounded-2xl border border-slate-200 p-5">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <p className="text-sm text-slate-500">{country}</p>
+              <p className="mt-1 text-lg font-semibold">{clinic}</p>
+              <p className="mt-2 text-sm text-slate-600">{action}</p>
+            </div>
+            <StatusBadge>{status}</StatusBadge>
+          </div>
+        </div>
+      ))}
+
+      <div className="rounded-2xl border border-blue-200 bg-blue-50 p-5">
+        <p className="text-sm font-semibold text-blue-700">Що бачить родина</p>
+        <p className="mt-2 text-sm text-slate-700">
+          Родина бачить, куди вже надіслано документи, які відповіді отримано
+          і що ще потрібно підготувати.
+        </p>
+      </div>
+    </div>
+  )
+}
+
 function DoctorCabinet() {
   return (
     <div className="rounded-2xl border border-slate-200 p-5">
@@ -258,6 +292,7 @@ function PageContent({ page }: { page: Page }) {
   if (page === 'Документи') return <Documents />
   if (page === 'Дослідження і лікування') return <ResearchMonitoring />
   if (page === 'Обмін документами') return <DocumentExchange />
+  if (page === 'Листи до клінік') return <ClinicLetters />
   if (page === 'Кабінет лікаря') return <DoctorCabinet />
   if (page === 'Черга оцінок') return <ReviewQueue />
   return <AdminView />
