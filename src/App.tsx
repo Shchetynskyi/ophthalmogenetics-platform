@@ -58,6 +58,27 @@ function FamilyDashboard() {
         </p>
       </section>
 
+      <section className="rounded-2xl border border-slate-200 p-4 md:p-5">
+        <p className="text-sm font-semibold text-blue-700">Стрічка справи</p>
+        <div className="mt-4 space-y-3">
+          {[
+            ['15.05', 'Генетичний висновок отримано', 'Виявлено системою'],
+            ['18.05', 'Переклад документів завершено', 'Закрито'],
+            ['21.05', 'Лист до Charité Berlin надіслано', 'Очікуємо відповідь'],
+            ['28.05', 'Отримано відповідь Institut de la Vision', 'Потрібні додаткові документи'],
+            ['30.05', 'Генетичний висновок передано лікарю', 'Очікує оцінки лікаря'],
+          ].map(([date, title, status]) => (
+            <div key={title} className="flex gap-3 rounded-xl bg-slate-50 p-3">
+              <div className="w-12 shrink-0 text-sm font-bold text-slate-500">{date}</div>
+              <div className="min-w-0 flex-1">
+                <p className="text-sm font-semibold text-slate-900">{title}</p>
+                <p className="mt-1 text-xs text-slate-500">{status}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <div className="grid gap-4 md:grid-cols-2">
         <section className="rounded-2xl border border-amber-200 bg-amber-50 p-4 md:p-5">
           <p className="text-sm font-semibold text-amber-800">Потрібно від родини</p>
