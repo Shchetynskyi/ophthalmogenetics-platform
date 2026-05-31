@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 type Page =
-  | 'Кабінет родини'
+  | 'Справа пацієнта'
   | 'Картка пацієнта'
   | 'Стрічка супроводу'
   | 'Документи'
@@ -14,7 +14,7 @@ type Page =
   | 'Адмін-вид'
 
 const pages: Page[] = [
-  'Кабінет родини',
+  'Справа пацієнта',
   'Картка пацієнта',
   'Стрічка супроводу',
   'Документи',
@@ -353,7 +353,7 @@ function AdminView() {
 }
 
 function PageContent({ page }: { page: Page }) {
-  if (page === 'Кабінет родини') return <FamilyDashboard />
+  if (page === 'Справа пацієнта') return <FamilyDashboard />
   if (page === 'Картка пацієнта') return <PatientCard />
   if (page === 'Стрічка супроводу') return <Timeline />
   if (page === 'Документи') return <Documents />
@@ -367,7 +367,7 @@ function PageContent({ page }: { page: Page }) {
 }
 
 function App() {
-  const [activePage, setActivePage] = useState<Page>('Кабінет родини')
+  const [activePage, setActivePage] = useState<Page>('Справа пацієнта')
 
   return (
     <main className="min-h-screen bg-slate-100 text-slate-900">
